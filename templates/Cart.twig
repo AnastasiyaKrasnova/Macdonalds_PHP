@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>MacDonalds mazafucka</title>
+		<link rel="shortcut icon" href="Images/Icon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="CSS/Cart.css">
+	</head>
+	<body>
+	{% include 'navigation.twig' %}
+	<header class="header">
+		<div class="container">
+				{% include 'header.twig' with {
+														'header_title':"Yeee, Good choice",
+														'header_description':"Get more and more",}%}	
+		</div>
+	</header>
+	<div class="section">
+		<div class="container">
+			<h2 class="title">Total order sum: ${{Sum}} </h2>
+			{% for card in mycards %}
+					{% include 'cart_items.twig' with {
+														'card_title':card.card_title,
+														'card_image':card.card_image,
+														'card_num':card.card_num,
+														'total_price':card.total_price,
+														'card_price':card.card_price,}%}
+			{% endfor %}
+		</div>
+		<div class="container">
+			<a href={{link_location}} class="button-outline">Purchase</a>
+			<a href={{link_main}} class="button-outline">Get more</a>
+		</div>
+	</div>
+	
+	{% include 'footer.twig' %}
+	</body>
+</html>
+

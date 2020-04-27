@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>MacDonalds mazafucka</title>
+		<link rel="shortcut icon" href="Images/Icon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="CSS/Menu.css">
+	</head>
+	<body>
+	{% include 'navigation.twig' %}
+	<header class="header">
+		<div class="container">
+				{% include 'header.twig' with {
+														'header_title':"Only the Freshiest Ingridients",
+														'header_description':"Present our wonderfull content since 1965",}%}	
+		</div>
+	</header>
+	<div class="section">
+		<div class="container">
+			<h2 class="title">{{menu_header}}</h2>
+			<div class="subtitle">Take them as quickly as possible</div>
+			{% include 'filters.twig' %}
+			<div class="card-wrapper">
+				<div class="container">
+				{% for card in mycards %}
+					{% include 'cards.twig' with {
+														'card_title':card.card_title,
+														'card_image':card.card_image,
+														'card_price':card.card_price,}%}	
+				{% endfor %}
+				<a href={{link_main}} class="button-outline">Return to the Main Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% include 'footer.twig' %}
+	</body>
+</html>
+
