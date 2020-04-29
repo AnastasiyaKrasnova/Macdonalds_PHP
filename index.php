@@ -14,6 +14,7 @@ if (!isset($_SESSION['counter'])) {
 	$_SESSION['adress']="Введите ваш адрес";
 	$_SESSION['phone']="Введите ваш телефон";
 	$_SESSION['name']="Введите ваш псевдоним";
+	$_SESSION['email']="Введите ваш email";
 	
 }
 $mycards=All_database_data($db);
